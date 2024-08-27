@@ -1,38 +1,30 @@
-from typing import (
-    TYPE_CHECKING,
-)
-
-if TYPE_CHECKING:
-    from nomad.datamodel.datamodel import (
-        EntryArchive,
-    )
-    from structlog.stdlib import (
-        BoundLogger,
-    )
+#
+# Copyright The NOMAD Authors.
+#
+# This file is part of NOMAD.
+# See https://nomad-lab.eu for further info.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 from nomad.config import config
-from nomad.datamodel.data import Schema
-from nomad.datamodel.metainfo.annotations import ELNAnnotation, ELNComponentEnum
-from nomad.metainfo import Quantity, SchemaPackage
+from nomad.metainfo import SchemaPackage
 
 configuration = config.get_plugin_entry_point(
     'nomad_parser_w2dynamics.schema_packages:schema_package_entry_point'
 )
 
 m_package = SchemaPackage()
-
-
-class NewSchemaPackage(Schema):
-    name = Quantity(
-        type=str, a_eln=ELNAnnotation(component=ELNComponentEnum.StringEditQuantity)
-    )
-    message = Quantity(type=str)
-
-    def normalize(self, archive: 'EntryArchive', logger: 'BoundLogger') -> None:
-        super().normalize(archive, logger)
-
-        logger.info('NewSchema.normalize', parameter=configuration.parameter)
-        self.message = f'Hello {self.name}!'
 
 
 m_package.__init_metainfo__()
