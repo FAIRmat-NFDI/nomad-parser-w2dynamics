@@ -21,7 +21,6 @@ from nomad.config.models.plugins import SchemaPackageEntryPoint
 
 
 class W2DynamicsSchemaPackageEntryPoint(SchemaPackageEntryPoint):
-
     def load(self):
         from nomad_parser_w2dynamics.schema_packages.schema_package import m_package
 

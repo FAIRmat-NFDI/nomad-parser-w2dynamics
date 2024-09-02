@@ -51,21 +51,6 @@
 # from nomad.app.v1.models import MetadataRequired
 
 
-# re_n = r'[\n\r]'
-
-
-# class LogParser(TextParser):
-#     def __init__(self):
-#         super().__init__(None)
-
-#     def init_quantities(self):
-#         self._quantities = [
-#             Quantity(
-#                 'program_version', r'Version\s*([0-9.]+)', dtype=str, flatten=False
-#             )
-#         ]
-
-
 # class W2DynamicsParser(BeyondDFTWorkflowsParser):
 #     level = 2
 
@@ -77,38 +62,6 @@
 #         self.hr_parser = HrParser()
 #         self.data = None
 #         self._child_archives = {}
-
-#         self._hubbard_kanamori_map = {'u': 'u', 'j': 'jh', 'v': 'up'}
-
-#         self._dmft_qmc_map = {'ntau': 'n_tau', 'niw': 'n_matsubara_freq'}
-
-#         self._dataset_run_mapping = {
-#             '.axes': x_w2dynamics_axes,
-#             '.quantities': x_w2dynamics_quantities,
-#         }
-
-#         self._inequivalent_atom_map = {
-#             'self_energy_iw': 'siw',
-#             'greens_function_iw': 'giw',
-#             'greens_function_tau': 'gtau',
-#         }
-
-#     def parse_program_version(self):
-#         """Parses the program version from the .log file if present.
-
-#         Returns:
-#             str: program version label
-#         """
-#         log_files = get_files('*.log', self.filepath, self.mainfile)
-#         if log_files:
-#             if len(log_files) > 1:
-#                 self.logger.warning(
-#                     'Multiple logging files found, the last one will be parsed.',
-#                     data={'files': log_files},
-#                 )
-
-#             self.log_parser.mainfile = log_files[-1]
-#             return self.log_parser.get('program_version', None)
 
 #     def parse_axes(self, source, target):
 #         """Parses the key `.axes` from the hdf5 mainfile

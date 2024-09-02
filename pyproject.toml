@@ -36,7 +36,14 @@ dependencies = [
 "Documentation" = "https://FAIRmat-NFDI.github.io/nomad-parser-w2dynamics/"
 
 [project.optional-dependencies]
-dev = ["ruff", "pytest", "structlog"]
+dev = [
+    "mypy==1.0.1",
+    "ruff",
+    "pytest",
+    "pytest-timeout",
+    "pytest-cov",
+    "structlog",
+]
 
 [tool.uv]
 index-url = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple"

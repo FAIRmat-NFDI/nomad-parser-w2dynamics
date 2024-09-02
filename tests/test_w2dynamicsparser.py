@@ -17,9 +17,8 @@
 #
 
 import pytest
-
-from nomad.datamodel import EntryArchive
 from electronicparsers.w2dynamics import W2DynamicsParser
+from nomad.datamodel import EntryArchive
 
 
 def approx(value, abs=0, rel=1e-6):

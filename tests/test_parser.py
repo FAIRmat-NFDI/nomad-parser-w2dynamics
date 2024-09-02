@@ -18,13 +18,14 @@
 #
 
 from nomad.datamodel import EntryArchive
+
 from nomad_parser_w2dynamics.parsers.parser import W2DynamicsParser
 
 from .conftest import logger
 
 
 def test_srvo3():
-    parser = W2DynamicsParser()
+    # parser = W2DynamicsParser()
 
     # archive = EntryArchive()
     # parser.parse(
@@ -37,7 +38,7 @@ def test_srvo3():
 
 
 def test_pressure_prnio2():
-    parser = W2DynamicsParser()
+    # parser = W2DynamicsParser()
 
     # archive1 = EntryArchive()
     # parser.parse(
